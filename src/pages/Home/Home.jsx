@@ -1,11 +1,11 @@
-import React from 'react';
+import Banner from "./Banner";
 
 const Home = () => {
-    return (
-        <div>
-            i am home
-        </div>
-    );
+  return (
+    <section className="space-y-28">
+      <Banner />
+    </section>
+  );
 };
 
 export default Home;
