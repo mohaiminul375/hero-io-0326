@@ -8,7 +8,8 @@ import ellipse3 from "../../assets/Ellipse 26.png";
 import ellipse4 from "../../assets/Ellipse 27.png";
 import ellipse5 from "../../assets/Ellipse 28.png";
 import ellipse6 from "../../assets/Ellipse 29.png";
-
+// json 10 arrange
+//বেসিক প্রোডাক্ট পেজ ১ ঘন্টা
 const Banner = () => {
   return (
     <div className="flex flex-col justify-center items-center">
@@ -57,27 +58,27 @@ const Banner = () => {
           <img className="relative left-20 top-20" src={ellipse6} alt="" />
         </div>
       </div>
-
+      {/* text content */}
       <div className="bg-gradient-to-r from-[#47229e] to-[#9F62F2] text-white w-full text-center py-14 mb-20">
         <div className="">
-          <h1 className="text-[45px] font-semibold">
+          <h1 className="text-5xl font-semibold">
             Trusted by Millions, Built for You
           </h1>
-          <div className="flex justify-center gap-7 md:gap-33 flex-col md:flex-row mt-10">
+          <div className="flex justify-center gap-7 md:gap-33 flex-col md:flex-row mt-6">
             <div>
               <p>Total Downloads</p>
               <h2 className="font-black text-[62px]">29.6M</h2>
-              <p>21% more than last month</p>
+              <p>28% more than last month</p>
             </div>
             <div>
               <p>Total Reviews</p>
               <h2 className="font-black text-[62px]">906K</h2>
-              <p>46% more than last month</p>
+              <p>32% more than last month</p>
             </div>
             <div>
               <p>Active Apps</p>
               <h2 className="font-black text-[62px]">132+</h2>
-              <p>31 more will Launch</p>
+              <p>45 more will Launch</p>
             </div>
           </div>
         </div>
