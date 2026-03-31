@@ -9,8 +9,8 @@ const Trending = () => {
   }
   return (
     <div>
-      {/* Trending Apps ||  Dynamic part */}
-      <div className="px-6 container">
+      {/* Trending Apps  */}
+      <div className="container mx-auto">
         <div className="text-center mb-10">
           <h1 className="font-semibold text-[48px]">Trending Apps</h1>
           <p className="text-gray-500">
@@ -20,7 +20,7 @@ const Trending = () => {
         {/* Home page apps 8 */}
         {apps.length !== 0 ? (
           <>
-            <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
               {apps.slice(0, 8).map((app) => (
                 <AppCard key={app.id} appData={app}></AppCard>
               ))}

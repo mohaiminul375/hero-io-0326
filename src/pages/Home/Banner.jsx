@@ -1,7 +1,7 @@
 import playStore from "../../assets/fi_16076057.png";
 import appStore from "../../assets/Group.png";
 import { Link } from "react-router";
-import iphone from "../../assets/Iphone.png";
+import iphone from "../../assets/hero.png";
 import ellipse1 from "../../assets/Ellipse 24.png";
 import ellipse2 from "../../assets/Ellipse 25.png";
 import ellipse3 from "../../assets/Ellipse 26.png";
@@ -44,18 +44,8 @@ const Banner = () => {
         </Link>
       </div>
       <div className="flex justify-center items-center gap-9">
-        <div className="hidden md:block">
-          <img src={ellipse1} alt="" />
-          <img className="relative right-12 top-10" src={ellipse2} alt="" />
-          <img className="relative right-20 top-20" src={ellipse3} alt="" />
-        </div>
         <div>
           <img src={iphone} alt="" />
-        </div>
-        <div className="hidden md:block">
-          <img src={ellipse4} alt="" />
-          <img className="relative left-12 top-10" src={ellipse5} alt="" />
-          <img className="relative left-20 top-20" src={ellipse6} alt="" />
         </div>
       </div>
       {/* text content */}
