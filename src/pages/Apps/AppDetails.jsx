@@ -1,21 +1,18 @@
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import download from "../../assets/icon-downloads.png";
 import star from "../../assets/icon-ratings.png";
 import like from "../../assets/icon-review.png";
 import {
-  Area,
   Bar,
   CartesianGrid,
   ComposedChart,
   Legend,
-  Line,
   ResponsiveContainer,
   Tooltip,
   XAxis,
   YAxis,
 } from "recharts";
-// import Loader from '../components/Loader';
-import { ToastContainer, toast } from "react-toastify";
+
 import { useLoaderData } from "react-router";
 import { addToLs, isInstalledApp } from "../../hook/LocalStorage";
 

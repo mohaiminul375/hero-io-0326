@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
 
-const getInsApp = (key) => {
+export const getInsApp = (key) => {
     const stored = localStorage.getItem(key);
     return stored ? JSON.parse(stored) : [];
 }
@@ -21,6 +21,7 @@ export const addToLs = (id) => {
         // push to LS
         app.push(id)
         saveApp('InstalledApps', app)
+         toast.success('Installed Successfully')
     } else {
         toast.error('Already install this app')
     }
