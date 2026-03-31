@@ -12,7 +12,7 @@ import ellipse6 from "../../assets/Ellipse 29.png";
 const Banner = () => {
   return (
     <div className="flex flex-col justify-center items-center">
-      <div className="text-7xl flex justify-center items-center flex-col leading-18.75 font-bold">
+      <div className="text-4xl sm:text-6xl md:text-7xl flex justify-center items-center flex-col leading-18.75 font-bold">
         <p>We Build</p>
         <p className="text-center">
           <span className="px-3 bg-gradient-to-r from-[#632EE3] to-[#9F62F2] bg-clip-text text-transparent ">
@@ -21,7 +21,7 @@ const Banner = () => {
           Apps
         </p>
       </div>
-      <p className="text-[#627382] text-base mt-5 max-w-200 text-center mb-10 px-3">
+      <p className="text-[#627382] text-base mt-5 md:max-w-200 text-center mb-10 px-3">
         At HERO.IO , we craft innovative apps designed to make everyday life
         simpler, smarter, and more exciting. Our goal is to turn your ideas into
         digital experiences that truly make an impact.
@@ -49,25 +49,25 @@ const Banner = () => {
         </div>
       </div>
       {/* text content */}
-      <div className="bg-gradient-to-r from-[#47229e] to-[#9F62F2] text-white w-full text-center py-14 mb-20">
+      <div className="bg-gradient-to-r from-[#47229e] to-[#9F62F2] text-white w-full text-center md:py-14 py-10 mb-20">
         <div className="">
-          <h1 className="text-5xl font-semibold">
+          <h1 className="md:text-5xl text-4xl font-semibold">
             Trusted by Millions, Built for You
           </h1>
           <div className="flex justify-center gap-7 md:gap-33 flex-col md:flex-row mt-6">
             <div>
               <p>Total Downloads</p>
-              <h2 className="font-black text-[62px]">29.6M</h2>
+              <h2 className="font-black text-5xl md:text-6xl">29.6M</h2>
               <p>28% more than last month</p>
             </div>
             <div>
               <p>Total Reviews</p>
-              <h2 className="font-black text-[62px]">906K</h2>
+              <h2 className="font-black text-5xl md:text-6xl">906K</h2>
               <p>32% more than last month</p>
             </div>
             <div>
               <p>Active Apps</p>
-              <h2 className="font-black text-[62px]">132+</h2>
+              <h2 className="font-black text-5xl md:text-6xl">132+</h2>
               <p>45 more will Launch</p>
             </div>
           </div>
