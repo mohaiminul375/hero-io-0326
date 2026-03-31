@@ -9,16 +9,14 @@ const AllApps = () => {
   const [searchedApps, setSearchedApps] = useState([]);
   const [searching, setSearching] = useState(false);
   // console.log(search,'search')
-  // console.log(searchedApps,'search')
-  // console.log(search,'search')
+
   useEffect(() => {
     setSearchedApps(apps);
   }, [apps]);
+  // search func
   useEffect(() => {
     if (!apps) return;
-
     setSearching(true);
-
     const timeout = setTimeout(() => {
       const term = search.trim().toLowerCase();
       if (term === "") {
@@ -34,9 +32,6 @@ const AllApps = () => {
 
     return () => clearTimeout(timeout);
   }, [search, apps]);
-  // if (status !== 200) {
-  //   return <Loader />;
-  // }
   return (
     <section className="container mx-auto">
       {/* heading */}

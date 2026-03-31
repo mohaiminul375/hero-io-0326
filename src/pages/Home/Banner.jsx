@@ -8,8 +8,7 @@ import ellipse3 from "../../assets/Ellipse 26.png";
 import ellipse4 from "../../assets/Ellipse 27.png";
 import ellipse5 from "../../assets/Ellipse 28.png";
 import ellipse6 from "../../assets/Ellipse 29.png";
-// json 10 arrange
-//বেসিক প্রোডাক্ট পেজ ১ ঘন্টা
+
 const Banner = () => {
   return (
     <div className="flex flex-col justify-center items-center">
@@ -27,6 +26,7 @@ const Banner = () => {
         simpler, smarter, and more exciting. Our goal is to turn your ideas into
         digital experiences that truly make an impact.
       </p>
+      {/* small icons */}
       <div className="mb-10">
         <Link
           to="https://play.google.com/store/games?hl=en"

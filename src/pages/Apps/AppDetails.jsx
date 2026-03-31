@@ -1,4 +1,4 @@
-import {  useState } from "react";
+import { useState } from "react";
 import download from "../../assets/icon-downloads.png";
 import star from "../../assets/icon-ratings.png";
 import like from "../../assets/icon-review.png";
@@ -15,9 +15,10 @@ import {
 
 import { useLoaderData } from "react-router";
 import { addToLs, isInstalledApp } from "../../hook/LocalStorage";
+import Loader from "../../components/Shared/Loader";
 
 const AppDetails = () => {
-  const appData = useLoaderData();
+  const { appData, status } = useLoaderData();
   const {
     id,
     title,
@@ -36,6 +37,9 @@ const AppDetails = () => {
     addToLs(id);
     setInstalled(true);
   };
+  if (status !== 200) {
+    return <Loader />;
+  }
   return (
     <div>
       <div className="flex w-10/12 justify-center md:items-center flex-col md:flex-row md:gap-12 mx-auto border-b-2 py-7 border-gray-300">
@@ -80,7 +84,7 @@ const AppDetails = () => {
           </button>
         </div>
       </div>
-{/* chart */}
+      {/* chart */}
       <div className="my-15 container mx-auto px-3 h-100">
         <h1 className="text-2xl font-bold mb-5">Ratings</h1>
         <ResponsiveContainer width="100%" height="100%">

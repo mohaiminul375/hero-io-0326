@@ -4,16 +4,17 @@ import star from "../../assets/icon-ratings.png";
 import { getInsApp } from "../../hook/LocalStorage";
 import { useNavigate } from "react-router";
 
-const InstallationCard = ({ app }) => {
+const InstallationCard = ({ app, setInstalledAppsList }) => {
   const navigate = useNavigate();
   // remove
   const handleRemove = (id) => {
     const getLsData = getInsApp("InstalledApps");
     const updatedList = getLsData.filter((app) => app !== id);
     localStorage.setItem("InstalledApps", JSON.stringify(updatedList));
-    toast.success('Delete Successfully')
+    setInstalledAppsList(JSON.stringify(updatedList));
+    toast.success("Delete Successfully");
     // reload
-    navigate("/installation", { replace: true });
+    navigate("/installation", { replace: false });
   };
   return (
     <div className="flex justify-between items-center mx-3 rounded-lg mb-3 bg-white p-4">
