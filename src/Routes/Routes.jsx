@@ -6,10 +6,13 @@ import axios from "axios";
 import AppDetails from "../pages/Apps/AppDetails";
 import { getInsApp } from "../hook/LocalStorage";
 import Installation from "../pages/Installation/Installation";
+import Loader from "../components/Shared/Loader";
+import ApiLoader from "../components/Shared/ApiLoader";
 export const router = createBrowserRouter([
   {
     path: "/",
     Component: Root,
+    hydrateFallbackElement: <Loader />,
     errorElement: <p></p>,
     children: [
       {
@@ -21,8 +24,8 @@ export const router = createBrowserRouter([
         path: "/all-apps",
         Component: AllApps,
         loader: async () => {
-          const res = await axios.get("/appData.json");
-          return res.data;
+          const { data, status } = await axios.get("/appData.json");
+          return { data, status };
         },
       },
       {

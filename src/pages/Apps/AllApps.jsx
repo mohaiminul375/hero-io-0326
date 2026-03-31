@@ -1,9 +1,42 @@
 import { useLoaderData } from "react-router";
 import AppCard from "../../components/AppCard";
+import { useEffect, useState } from "react";
+import Loader from "../../components/Shared/Loader";
 
 const AllApps = () => {
-  const apps = useLoaderData();
-  console.log(apps);
+  const { data: apps, status } = useLoaderData();
+  const [search, setSearch] = useState("");
+  const [searchedApps, setSearchedApps] = useState([]);
+  const [searching, setSearching] = useState(false);
+  // console.log(search,'search')
+  // console.log(searchedApps,'search')
+  // console.log(search,'search')
+  useEffect(() => {
+    setSearchedApps(apps);
+  }, [apps]);
+  useEffect(() => {
+    if (!apps) return;
+
+    setSearching(true);
+
+    const timeout = setTimeout(() => {
+      const term = search.trim().toLowerCase();
+      if (term === "") {
+        setSearchedApps(apps);
+      } else {
+        const filtered = apps.filter((app) =>
+          app.title.toLowerCase().includes(term),
+        );
+        setSearchedApps(filtered);
+      }
+      setSearching(false);
+    }, 200);
+
+    return () => clearTimeout(timeout);
+  }, [search, apps]);
+  // if (status !== 200) {
+  //   return <Loader />;
+  // }
   return (
     <section className="container mx-auto">
       {/* heading */}
@@ -34,19 +67,27 @@ const AllApps = () => {
             </g>
           </svg>
           <input
-            // value={search}
-            // onChange={(e) => setSearch(e.target.value)}
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
             type="search"
             required
             placeholder="Search Apps"
           />
         </label>
       </div>
-      <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4 mt-10">
-        {apps?.map((app) => (
-          <AppCard key={app.id} appData={app} />
-        ))}
-      </div>
+      {(status !== 200 || searching) ? (
+        <Loader />
+      ) : (
+        <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4 mt-10">
+          {searchedApps !== 0 ? (
+            searchedApps?.map((app) => <AppCard key={app.id} appData={app} />)
+          ) : (
+            <p className="text-3xl font-bold text-center mt-5 text-gray-500">
+              No Apps Found
+            </p>
+          )}
+        </div>
+      )}
     </section>
   );
 };

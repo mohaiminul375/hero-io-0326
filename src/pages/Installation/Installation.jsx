@@ -1,5 +1,7 @@
-import { useLoaderData } from "react-router";
+import { Await, useLoaderData } from "react-router";
 import InstallationCard from "./InstallationCard";
+import Loader from "../../components/Shared/Loader";
+import { Suspense } from "react";
 
 const Installation = () => {
   const apps = useLoaderData();
@@ -26,15 +28,21 @@ const Installation = () => {
         </div>
       </div>
       {/* app card */}
-      <div className="mt-10">
-        {apps.length !== 0 ? (
-          apps.map((app) => <InstallationCard key={app.id} app={app} />)
-        ) : (
-          <p className="text-3xl font-bold text-center mt-5 text-gray-500">
-            No Apps Installed
-          </p>
-        )}
-      </div>
+      <Suspense fallback={<Loader />}>
+        <Await resolve={apps}>
+          {(apps) => (
+            <div className="mt-10">
+              {apps.length !== 0 ? (
+                apps.map((app) => <InstallationCard key={app.id} app={app} />)
+              ) : (
+                <p className="text-3xl font-bold text-center mt-5 text-gray-500">
+                  No Apps Installed
+                </p>
+              )}
+            </div>
+          )}
+        </Await>
+      </Suspense>
     </section>
   );
 };
